@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eScholaris | Algebra 1 - Lección 15 Cierre</title>
+  <meta name="description" content="Cierre y reflexión final de la lección de forma pendiente-intersección." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:         #dce4ed;
+      --header-bg:  #1a2e42;
+      --navy:       #132c46;
+      --white:      #ffffff;
+      --gray-light: #f4f7fa;
+      --gray-mid:   #dde6ee;
+      --text:       #2d3f50;
+      --text-soft:  #5a7080;
+      --gold:       #d4a02a;
+      --gold-light: #f5c842;
+      --purple:     #6862a9;
+      --teal:       #1399bd;
+      --green:      #3d7015;
+      --coral:      #c94b34;
+      --yellow:     #f8b93c;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(160deg, #ccd7e3 0%, #dce4ed 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem;
+      gap: 1.25rem;
+      color: var(--text);
+    }
+
+    /* ─── HEADER ─── */
+    .header-bubble {
+      background: var(--header-bg);
+      border-radius: 22px;
+      padding: 1rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--white);
+      box-shadow: 0 8px 28px rgba(20,40,60,0.22);
+    }
+    .header-left { display: flex; align-items: center; gap: 1.5rem; }
+    .logo {
+      background: var(--white); color: var(--navy);
+      padding: 0.3rem 0.9rem; border-radius: 22px;
+      font-weight: 800; font-size: 1.05rem; letter-spacing: -0.5px;
+      display: flex; align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .logo span.e { color: var(--gold); }
+    .header-titles { display: flex; flex-direction: column; }
+    .h-course { font-size: 0.6rem; font-weight: 700; color: #7fa0bc; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.1rem; }
+    .h-lesson { font-size: 1.05rem; font-weight: 700; }
+    .header-right { display: flex; align-items: center; gap: 1.2rem; }
+    .h-badge {
+      background: rgba(212,160,42,0.18);
+      border: 1.5px solid var(--gold);
+      color: var(--gold-light);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    /* ─── INTRO BANNER ─── */
+    .intro-banner {
+      background: linear-gradient(135deg, var(--teal) 0%, #0d7896 100%);
+      border-radius: 28px;
+      padding: 2.5rem 3rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      box-shadow: 0 12px 36px rgba(19,153,189,0.25);
+    }
+    .intro-icon { font-size: 4.5rem; flex-shrink: 0; line-height: 1; text-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .intro-text h1 { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+    .intro-text p  { color: #d6f2fa; font-size: 1.05rem; line-height: 1.6; }
+
+    /* ─── CARD ─── */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid var(--gray-mid);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 2px solid var(--gray-mid);
+    }
+    .card-icon {
+      width: 3rem; height: 3rem;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .card-icon.gold   { background: rgba(212,160,42,0.15); }
+    
+    .card-header-text h2 { font-size: 1.3rem; font-weight: 800; color: var(--navy); }
+    .card-header-text p  { font-size: 0.88rem; color: var(--text-soft); font-weight: 500; margin-top: 0.15rem; }
+
+    /* ─── SUMMARY LIST ─── */
+    .summary-list { display: flex; flex-direction: column; gap: 1rem; }
+    .summary-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+      background: var(--gray-light);
+      border-radius: 14px;
+      padding: 1.25rem;
+      border-left: 4px solid var(--gold);
+    }
+    .s-num {
+      flex-shrink: 0;
+      width: 2.2rem; height: 2.2rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; color: var(--navy);
+      box-shadow: 0 2px 8px rgba(212,160,42,0.3);
+    }
+    .s-text { font-size: 1.05rem; font-weight: 500; color: var(--navy); line-height: 1.55; padding-top: 0.15rem; }
+    .s-text strong { font-weight: 800; color: var(--teal); }
+
+    /* ─── REFLECTION ─── */
+    .reflection-box {
+      background: linear-gradient(135deg, rgba(104,98,169,0.05), rgba(104,98,169,0.1));
+      border: 2px solid rgba(104,98,169,0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .r-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--purple);
+      margin-bottom: 1.5rem;
+    }
+    
+    .text-area-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .text-area-box textarea {
+      width: 100%;
+      min-height: 120px;
+      border: 1.5px solid var(--gray-mid);
+      border-radius: 12px;
+      padding: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      resize: vertical;
+      background: var(--white);
+    }
+    .text-area-box textarea:focus { outline: none; border-color: var(--purple); }
+
+    .finish-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--navy), #2a4d6e);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(19,44,70,0.25);
+      transition: all 0.25s;
+    }
+    .finish-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(19,44,70,0.35); }
+
+    .thank-you {
+      display: none;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .intro-banner { flex-direction: column; gap: 1.25rem; padding: 2rem; text-align: center; }
+      .card, .reflection-box { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <div class="header-bubble">
+    <div class="header-left">
+      <div class="logo"><span class="e">e</span>SCHOLARIS</div>
+      <div class="header-titles">
+        <div class="h-course">ALGEBRA 1 · MATHEMATICS</div>
+        <div class="h-lesson">Lección 15 · Cierre</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="h-badge">Sección 6 de 6</div>
+    </div>
+  </div>
+
+  <div class="main-container">
+
+    <!-- ══ INTRO BANNER ══ -->
+    <div class="intro-banner">
+      <div class="intro-icon">🎉</div>
+      <div class="intro-text">
+        <h1>¡Lección completada!</h1>
+        <p>Has llegado al final de la lección "Forma pendiente-intersección". Aprendiste a traducir situaciones de la vida real a ecuaciones usando y = mx + b.</p>
+      </div>
+    </div>
+
+    <!-- ══ RESUMEN ══ -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon gold">📌</div>
+        <div class="card-header-text">
+          <h2>Resumen de lo aprendido</h2>
+          <p>Los puntos fundamentales que te llevas de esta lección.</p>
+        </div>
+      </div>
+
+      <div class="summary-list">
+        <div class="summary-item">
+          <div class="s-num">1</div>
+          <div class="s-text">
+            En la ecuación y = mx + b, <strong>"m"</strong> es la pendiente (razón de cambio) y <strong>"b"</strong> es la intersección en Y (cantidad inicial).
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="s-num">2</div>
+          <div class="s-text">
+            Una <strong>lectura de 3 capas</strong> te ayuda a evitar errores: leer la estructura, entender el significado y verificar el resultado.
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="s-num">3</div>
+          <div class="s-text">
+            Verificar con un punto en tu <strong>tabla o gráfica</strong> es la mejor manera de asegurar que tu ecuación fue planteada correctamente.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ REFLEXIÓN (TICKET DE SALIDA) ══ -->
+    <div class="reflection-box">
+      <div class="r-title">Ticket de Salida</div>
+      
+      <div class="text-area-box" id="ticketGroup">
+        <p style="font-weight:700; color:var(--navy); margin-bottom:0.75rem; text-align:left;">¿Qué paso te ayudó más a evitar errores en tus gráficas de hoy?</p>
+        <textarea id="reflectionAnswer" placeholder="Escribe tu reflexión brevemente aquí..."></textarea>
+      </div>
+
+      <button class="finish-btn" id="finishBtn" onclick="finishLesson()">
+        ✅ Enviar y Finalizar Lección
+      </button>
+
+      <div class="thank-you" id="thankYouMsg">
+        ¡Gracias por tu respuesta! Ya puedes marcar esta lección como completada en Canvas. 🚀
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function finishLesson() {
+      const answer = document.getElementById('reflectionAnswer').value.trim();
+      
+      if (answer === '') {
+        alert("Por favor escribe tu reflexión antes de finalizar.");
+        return;
+      }
+
+      document.getElementById('ticketGroup').style.display = 'none';
+      document.getElementById('finishBtn').style.display = 'none';
+      
+      const msg = document.getElementById('thankYouMsg');
+      msg.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
